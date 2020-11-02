@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+
+		<h:form>
+            <p:commandButton action="Adicionar" actionlistener="#{userBean.novo}" value="Novo Usuário" /> 
+            <h:dataTable value="#{userBean.users}" var="u"> 
+                <h:column> 
+                    <f:facet name="header"><h:outputText value="Usuario" /></f:facet>
+                    <h:outputText value="#{u.usuario}" /> 
+                </h:column> 
+                <h:column> 
+                    <f:facet name="header"><h:outputText value="Senha" /></f:facet> 
+                    <h:outputText value="#{u.senha}" /> 
+                </h:column> 
+                <h:column> 
+                    <f:facet name="header"><h:outputText value="Ações" /></f:facet> 
+                    <p:commandButton action="Atualizar" actionListener="#{userBean.selecionar}" value="Alterar"/> 
+                    <p:commandButton  actionListener="#{userBean.deletar}" value= "Remover"/> 
+                </h:column>
+        </h:dataTable>
+        </h:form> 
+
+</h:body>
+</html>
